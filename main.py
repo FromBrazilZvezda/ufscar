@@ -12,8 +12,8 @@ auth.set_access_token(acess_key, acess_secret)
 api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
 
 ## CONFIGURAÇÕES FIXAS ##
-post_hour = 00
-post_minute = 00
+post_hour = 23
+post_minute = 30
 tittle = 'days.txt'
 
 ## CONFIGURAÇÕES DE FUNÇÕES ##
@@ -73,7 +73,7 @@ def main():
     while True:
         x = time.gmtime()
         if x[3] == int(post_hour) and x[4] == int(post_minute):
-            post_frase =  f'Ainda temos {read_vac(tittle)} de férias. O ENPE 2021/1 se inicia em 16 de Agosto de 2021. (Tentativa 3)'
+            post_frase =  f'Ainda temos {read_vac(tittle)} de férias. O ENPE 2021/1 se inicia em 16 de Agosto de 2021.'
             api.update_status(post_frase)
             print('Atualizado.')
             change_days(tittle)
