@@ -35,7 +35,7 @@ def get_percentage(doc_name):
 def main(doc_name):
     while True:
         x = time.gmtime()
-        if x[3] == 00 and x[4] == 31:
+        if x[3] == 00 and x[4] == 35:
             days = get_days(doc_name)
             perc = get_percentage(doc_name)
             post_frase =  f'Faltam {days} dias para o final do ENPE 2021/1 na @UFSCar. Até o momento {perc}% do semestre ja foi concluído.'
