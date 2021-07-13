@@ -12,7 +12,7 @@ auth.set_access_token(acess_key, acess_secret)
 api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
 
 ## CONFIGURAÇÕES DE DIA ENPE ##
-days = 138 
+days = 137
 total_days = 138
 
 # CONFIGURAÇÕES DE HORARIO DE POST ##
