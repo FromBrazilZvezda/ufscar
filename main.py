@@ -27,7 +27,7 @@ perc = ((days - total_days) / total_days) * 100
 while True:
     x = time.gmtime()
     if x[3] == int(hour) and x[4] == int(minute):
-        post_frase =  f'Faltam {days} dias para o final do ENPE 2021/1 na @UFSCar.'
+        post_frase =  f'Faltam {days} dias para o final do ENPE 2021/2 na @UFSCaroficial.'
         api.update_status(post_frase)
         print('Atualizado.')
         days = days - 1
