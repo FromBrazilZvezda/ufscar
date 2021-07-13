@@ -17,7 +17,7 @@ perc = ((days - total_days) / total_days) * 100
 
 while True:
     x = time.gmtime()
-    if x[3] == 1 and x[4] == 25:
+    if x[3] == 1 and x[4] == 30:
         post_frase =  f'Faltam {days} dias para o final do ENPE 2021/1 na @UFSCaroficial.'
         api.update_status(post_frase)
         print('postado!')
