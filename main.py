@@ -17,7 +17,7 @@ total_days = 138
 
 # CONFIGURAÇÕES DE HORARIO DE POST ##
 hour = 3
-minute = 10
+minute = 15
 
 ## CONFIGURAÇÕES NÃO ALTERÁVEIS ##
 days_remaining = -(days - total_days)
