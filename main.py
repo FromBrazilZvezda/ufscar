@@ -13,7 +13,7 @@ api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
 
 ## CONFIGURAÇÕES FIXAS ##
 post_hour = 23
-post_minute = 30
+post_minute = 37
 tittle = 'days.txt'
 
 ## CONFIGURAÇÕES DE FUNÇÕES ##
