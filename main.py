@@ -3,8 +3,8 @@ from os import environ
 from time import sleep, gmtime
 
 # Time_config #
-post_h = 21
-post_m = 0
+post_h = 22
+post_m = 22
 
 # Tweepy_config #
 api_key = environ['api_key']
