@@ -16,8 +16,8 @@ auth.set_access_token(acess_key, acess_secret)
 api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
 
 # days_config #
-vacation_days = 32
-study_days = -32
+vacation_days = 31
+study_days = -31
 total_study_days = 103
 
 # math_config #
