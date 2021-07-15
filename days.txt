@@ -1,3 +1,0 @@
-vaccation_total_days_remaining = 34
-total_days = -34
-total_semester_days = 103
