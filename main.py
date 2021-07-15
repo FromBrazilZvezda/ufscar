@@ -4,7 +4,7 @@ from time import sleep, gmtime
 
 # Time_config #
 post_h = 22
-post_m = 22
+post_m = 52
 
 # Tweepy_config #
 api_key = environ['api_key']
@@ -31,6 +31,7 @@ while True:
             post_frase = f'Ainda temos {vacation_days} de férias. O ENPE 2021/1 se inicia em 16 de Agosto de 2021.'
             vacation_days = vacation_days - 1
             study_days = study_days + 1
+            api.update_status(post_frase)
             print('Atualizado.')
             sleep(60)
             
