@@ -4,7 +4,7 @@ from time import sleep, gmtime
 
 # Time_config #
 post_h = 21
-post_m = 0
+post_m = 30
 
 # Tweepy_config #
 api_key = environ['api_key']
@@ -16,8 +16,8 @@ auth.set_access_token(acess_key, acess_secret)
 api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
 
 # days_config #
-vacation_days = 31
-study_days = -31
+vacation_days = 30
+study_days = -30
 total_study_days = 103
 
 # math_config #
