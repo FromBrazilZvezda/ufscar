@@ -1,64 +1,85 @@
-import tweepy
+from time import gmtime, sleep
+import tweepy as tw
 from os import environ
-from time import sleep, gmtime
 
-# Time_config #
-post_h = 21
-post_m = 30
+## config_time ##
+post_hour = 0
+post_minute = 0
 
-# Tweepy_config #
+## Tweepy_config ##
 api_key = environ['api_key']
 api_secret_key = environ['api_secret_key']
 acess_key = environ['acess_key']
 acess_secret = environ['acess_secret']
-auth = tweepy.OAuthHandler(api_key, api_secret_key)
+auth = tw.OAuthHandler(api_key, api_secret_key)
 auth.set_access_token(acess_key, acess_secret)
-api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
+api = tw.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
 
-# days_config #
-vacation_days = 30
-study_days = -30
-total_study_days = 103
+## date_config ##
+gm_date_get = gmtime()
+day = gm_date_get[2]
+month = gm_date_get[1]
+year = gm_date_get[0]
+hour = gm_date_get[3]
+minute = gm_date_get[4]
 
-# math_config #
-percentage = (study_days / total_study_days) * 100
+date_confirmation = "{}/{}/{}".format(year, month, day)
+hour_confirmation = "{}:{}".format(hour, minute)
 
-# post_config #
+## text_config ##
+a = open('configs.txt', 'r')
+sep = a.readlines()
+preliminar = []
+lista_final = []
+for item in sep:
+    if item[0:10] == date_confirmation:
+        preliminar.append(item)
+for item in preliminar:
+    item1 = item[0:10]
+    item2 = item[11:13]
+    item3 = item[14:17]
+    item4 = item[18:21]
+    item5 = item[22:27]
+    lista_final.append(item1)
+    lista_final.append(item2)
+    lista_final.append(item3)
+    lista_final.append(item4)
+    lista_final.append(item5)
+a.close()
+data = lista_final[0]
+ferias = int(lista_final[1])
+dias_aula = int(lista_final[2])
+total = int(lista_final[3])
+porcentagem = float(lista_final[4])
+
 while True:
-    actual_time = gmtime()
-    if actual_time[3] == int(post_h) and actual_time[4] == int(post_m):
-        if vacation_days > 0:
-            post_frase = f'Ainda temos {vacation_days} de férias. O ENPE 2021/1 se inicia em 16 de Agosto de 2021.'
-            vacation_days = vacation_days - 1
-            study_days = study_days + 1
+    if hour == int(post_hour) and minute == int(post_minute):
+        if ferias > 0:
+            post_frase = f'Ainda temos {ferias} de férias. O ENPE 2021/1 se inicia em 16 de Agosto de 2021.'
             api.update_status(post_frase)
             print('Atualizado.')
             sleep(60)
-            
 
-        elif vacation_days == 0 and study_days == 0:
-            post_frase = f'As aulas começam amanhã! Boa sorte a todos <3'
-            study_days = study_days + 1
-            api.update_status(post_frase)
-            print('Atualizado.')
-            sleep(60)
-            
-        elif 0 < study_days > 103:
-            post_frase = 'Já se passaram {} dias de aula no ENPE 2021/1. Completamos um total de {:.2f}% do semestre!'.format(study_days, percentage)
-            study_days = study_days + 1
-            api.update_status(post_frase)
-            print('Atualizado.')
-            sleep(60)
-            
-        elif study_days == total_study_days:
-            break
+        elif ferias == 0 and dias_aula == 0:
+                post_frase = f'As aulas começam amanhã! Boa sorte a todos <3'
+                api.update_status(post_frase)
+                print('Atualizado.')
+                sleep(60)
+
+        elif 0 < dias_aula > 103:
+                post_frase = 'Já se passaram {} dias de aula no ENPE 2021/1. Completamos um total de {:.2f}% do semestre!'.format(dias_aula, porcentagem)
+                api.update_status(post_frase)
+                print('Atualizado.')
+                sleep(60)
+                
+        elif dias_aula == total:
+                break
+
     else:
         print('Nada para atualizar.')
         sleep(60)
         
-# end_season_config #
+## end_season_config ##
 post_frase = '"Nós é merecedor de curti umas férias", RODO, Poze do. 2020.\nA partir de agora nós entraremos em stand-by para manutenção. Foi um prazer dividir esse semestre com vocês!'
 api.update_status(post_frase)
 print('Atualizado.')
-
- 
