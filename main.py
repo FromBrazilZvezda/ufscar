@@ -4,7 +4,7 @@ import tweepy as tw
 
 # CONFIGURAÇÃO DE HORÁRIO #
 hr_postar = 21
-min_postar = 30
+min_postar = 40
 
 # CONFIGURAÇÃO TWEEPY #
 api_key = environ['api_key']
@@ -102,30 +102,30 @@ while True:
     if hora == hr_postar and minuto == min_postar:
         if ferias > 0: 
             frase = f'Ainda temos {ferias} dias de férias. O ENPE 2021/1 se inicia em 16 de Agosto de 2021.'
-            # api.update_status(frase)
-            print(frase)
+            api.update_status(frase)
+            print()
             print('Atualizado em {}.'.format(data_atual))
             sleep(60)
 
         elif ferias == 0 and dias_aula == 0:
             frase = f'As aulas do ENPE 2021/1 começam amanhã! tenham todos um ótimo semestre!'
-            # api.update_status(frase)
-            print(frase)
+            api.update_status(frase)
+            print()
             print('Atualizado em {}'.format(data_atual))
             sleep(60)
         
         elif dias_aula > 0:
             frase = f'Já completamos {dias_aula} dias de aula no ENPE 2021/1, completando {porcentagem}% do total.'
-            # api.update_status(frase)
-            print(frase)
+            api.update_status(frase)
+            print()
             print('Atualizado em {}'.format(data_atual))
             sleep(60)
         
         elif dias_aula == total:
             frase = f'O ENPE 2021/1 está 100% completo.'
-            # api.update_status(frase)
-            print(frase)
+            api.update_status(frase)
             print('Atualizado em {}'.format(frase))
+            print()
             exit()
     else:
         print('Nada a atualizar.')
