@@ -132,4 +132,5 @@ while True:
         print('Nada a atualizar.')
         print('Data: {}'.format(data_atual))
         print('Hora: {}:{}'.format(hora-3, minuto))
+        print()
         sleep(60)
