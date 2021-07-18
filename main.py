@@ -23,8 +23,7 @@ while True:
     hora = get_data[3]
     minuto = get_data[4]
 
-    # data_auto = f'{dia}/{mes}/{ano}'
-    data_auto = '23/10/2021'
+    data_auto = f'{dia}/{mes}/{ano}'
 
     lista_final = []
 
