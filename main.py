@@ -128,8 +128,7 @@ while True:
             print()
             exit()
     else:
-        print('Nada a atualizar.')
-        print('Data: {}'.format(data_atual))
-        print('Hora: {}:{}'.format(hora-3, minuto))
+        print('------ Nada a atualizar ------')
+        print('Data: {} | Hora: {}:{}'.format(data_atual, hora-3, minuto))
         print()
         sleep(60)
