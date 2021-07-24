@@ -4,8 +4,8 @@ from time import gmtime, sleep
 import requests
 
 # CONFIGURAÇÃO DE HORÁRIO #
-hr_postar = 2
-min_postar = 51
+hr_postar = 21
+min_postar = 40
 
 # CONFIGURAÇÃO TWEEPY #
 api_key = environ['api_key']
