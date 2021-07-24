@@ -30,15 +30,16 @@ while True:
     hora = get_data[3]
     minuto = get_data[4]
 
-    data_api = f'{dia}-{mes}-{ano}'
-    data_formatada = f'{dia}/{mes}/{ano}'
-    dados = DadosENPE(data_api)
-    DiasAula = dados['daulas']
-    Ferias = dados['ferias']
-    Porcentagem = dados['porcentagem']
-    TotalDiasAula = dados['total']
-
     if hora == hr_postar and minuto == min_postar:
+        
+        data_api = f'{dia}-{mes}-{ano}'
+        data_formatada = f'{dia}/{mes}/{ano}'
+        dados = DadosENPE(data_api)
+        DiasAula = dados['daulas']
+        Ferias = dados['ferias']
+        Porcentagem = dados['porcentagem']
+        TotalDiasAula = dados['total']
+        
         if Ferias > 0: 
             frase = f'Ainda temos {Ferias} dias de férias. O ENPE 2021/1 se inicia em 16 de Agosto de 2021.'
             api.update_status(frase)
