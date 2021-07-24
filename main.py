@@ -29,11 +29,11 @@ while True:
     ano = get_data[0]
     hora = get_data[3]
     minuto = get_data[4]
+    data_api = f'{dia}-{mes}-{ano}'
+    data_formatada = f'{dia}/{mes}/{ano}'
 
     if hora == hr_postar and minuto == min_postar:
         
-        data_api = f'{dia}-{mes}-{ano}'
-        data_formatada = f'{dia}/{mes}/{ano}'
         dados = DadosENPE(data_api)
         DiasAula = dados['daulas']
         Ferias = dados['ferias']
